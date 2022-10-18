@@ -2,21 +2,23 @@ import React from 'react'
  
 // o "term" é digitado pelo usuário e o "secretNum" é o número sorteado
 const Result = ({ term , secretNum }) => {
-    let result;
-    if(term){
+    let result
+    let isNumber = !isNaN(term)
+    if(isNumber){
         // se o número secreto for maior que o digitado
         if(secretNum > term){
-        result = 'Mais!'
+            result = 'Mais!'
         }
         // se o número secreto for menor que o digitado
         else if(secretNum < term){
-        result ='Menos!'
+            result ='Menos!'
         }
         // senão, acertou
         else{
-        result ='Exato, você acertou!'
+            result ='Exato, você acertou!'
         }
     }
+    else result = 'Digite um número!'
     return <h3>{result}</h3>
 }
  
